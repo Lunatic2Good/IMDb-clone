@@ -19,12 +19,16 @@ function NavbarItem({ title, param }) {
     );
 }
 
-export default function Navbar({ items }) {
+export default function Navbar({ items = [] }) {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            {items.map(item => (
-                <NavbarItem key={item.param} title={item.title} param={item.param} />
-            ))}
+            {items.length > 0 ? (
+                items.map(item => (
+                    <NavbarItem key={item.param} title={item.title} param={item.param} />
+                ))
+            ) : (
+                <div>No items to display</div>
+            )}
         </Suspense>
     );
 }
