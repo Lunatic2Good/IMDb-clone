@@ -6,7 +6,7 @@ async function getMovie(movieId) {
 };
 
 export default async function MoviePage({params}) {
-    console.log(params);
+    // console.log(params);
     const movieId = params.id;
     const movie = await getMovie(movieId);
   return (
